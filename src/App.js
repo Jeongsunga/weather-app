@@ -16,6 +16,8 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [city, setCity] = useState(null);
   const [weather, setWeather] = useState(null);
+    // eslint-disable-next-line
+  const [apiError, setAPIError] = useState("");
 
   const getCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -35,6 +37,7 @@ function App() {
       setLoading(false);
     } catch (err) {
       console.log(err);
+      setAPIError(err.message);
       setLoading(false);
     }
   }
@@ -49,6 +52,7 @@ function App() {
       setLoading(false);
     } catch (err) {
       console.log(err);
+      setAPIError(err.message);
       setLoading(false);
     }
   };
