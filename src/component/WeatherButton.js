@@ -3,16 +3,18 @@ import '../App.css';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
-const WeatherButton = () => {
+const WeatherButton = ({ cities, selectedCity, handleCityChange }) => {
   return (
     <div className="weather-button">
         <ButtonGroup aria-label="Basic example">
-            <Button variant="secondary">My Location</Button>
-            <Button variant="secondary">New York</Button>
-            <Button variant="secondary">London</Button>
-            <Button variant="secondary">Paris</Button>
-            <Button variant="secondary">Tokyo</Button>
-            <Button variant="secondary">Random</Button>
+            <Button
+            variant={`${selectedCity === null ? "dark" : "secondary"}`}
+            onClick={() => handleCityChange("current")}>My Location</Button>
+
+            {cities.map((city) => (
+              <Button
+              variant={`${selectedCity === city ? "dark" : "secondary"}`}
+              onClick={() => handleCityChange(city)}>{city}</Button>))}
         </ButtonGroup>
     </div>
   )
