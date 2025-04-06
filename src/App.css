@@ -54,10 +54,10 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
   }
 
   .weather-button button {
-    width: 45%;
-    margin: 5px;
+    width: 30%;
   }
 }
