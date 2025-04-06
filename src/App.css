@@ -57,7 +57,9 @@ body{
     align-items: center;
   }
 
-  .weather-button button {
-    width: 30%;
+  .weather-button-group {
+    flex: 1 1 45%;
+    margin: 5px;
+    min-width: 120px;
   }
 }
