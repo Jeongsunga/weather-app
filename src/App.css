@@ -34,3 +34,30 @@ body{
   margin-top: 10px;
   font-family: 'DungGeunMo';
 }
+
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    height: 100vh;
+  }
+
+  .weather-box {
+    width: 90%;
+    padding: 30px;
+  }
+
+  .weather-button {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .weather-button button {
+    width: 45%;
+    margin: 5px;
+  }
+}
