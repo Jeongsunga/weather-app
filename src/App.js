@@ -21,11 +21,18 @@ function App() {
   const [apiError, setAPIError] = useState("");
 
   const getCurrentLocation = () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      let lat = position.coords.latitude
-      let lon = position.coords.longitude
-      getWeatherByCurrentLocation(lat, lon);
-    });
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        let lat = position.coords.latitude;
+        let lon = position.coords.longitude;
+        getWeatherByCurrentLocation(lat, lon);
+      },
+      (error) => {
+        console.error("위치 정보 가져오기 실패:", error);
+        setAPIError("위치 정보를 가져오는 데 실패했습니다.");
+        setLoading(false); // 실패 시 로딩 멈추기
+      }
+    );
   };
 
   const getWeatherByCurrentLocation = async(lat, lon) => {
